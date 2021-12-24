@@ -10,7 +10,7 @@ const ListOfDoctors = () => {
 
     useEffect(() => {
         setFilteredDoctors(allDoctorData);
-    }, []);
+    }, [allDoctorData]);
 
     const handleDepartmentSelection = (e) => {
         let selectedDepartment = e.target.value;
@@ -35,15 +35,15 @@ const ListOfDoctors = () => {
                 filteredDoctors.map((i, k) => (
                     <ul>
                         <ul>
-                            <li>{i.name}</li>
-                            <li>{i.department}</li>
-                            <li>{i.role}</li>
-                            <li>{i.startTime.toUTCString()}</li>
-                            <li>{i.endTime.toUTCString()}</li>
-                            <li>{i.role}</li>
-                            <li>{i.notes}</li>
-                            <li>{i.callOrder}</li>
-                            <li>{i.pager}</li>
+                            <li>Doctor Name: {i.name}</li>
+                            <li>Department: {i.department}</li>
+                            <li>Role {i.role}</li>
+                            <li>Start Time: {i.startTime.toUTCString()}</li>
+                            <li>End Time: {i.endTime.toUTCString()}</li>
+                            <li>Role: {i.role}</li>
+                            <li>Notes: {i.notes}</li>
+                            <li>Call Order: {i.callOrder}</li>
+                            <li>Pager: {i.pager}</li>
                         </ul>
                     </ul>
                 ))
