@@ -8,7 +8,17 @@ const ListOfDoctors = () => {
                 allDoctorData &&
                 allDoctorData.map((i, k) => (
                     <ul>
-                        <li key={k}>{i.name}</li>
+                        <ul>
+                            <li>{i.name}</li>
+                            <li>{i.department}</li>
+                            <li>{i.role}</li>
+                            <li>{i.startTime.toUTCString()}</li>
+                            <li>{i.endTime.toUTCString()}</li>
+                            <li>{i.role}</li>
+                            <li>{i.notes}</li>
+                            <li>{i.callOrder}</li>
+                            <li>{i.pager}</li>
+                        </ul>
                     </ul>
                 ))
             }
