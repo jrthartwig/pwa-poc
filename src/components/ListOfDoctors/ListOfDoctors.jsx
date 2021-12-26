@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAllData } from "../../contexts/allData";
 import getDataByDepartment from "../../services/getDataByDepartment";
 import buttons from "../../data/buttons";
+import FilterButton from "../FilterButton/FilterButton";
 
 const ListOfDoctors = () => {
     const [filteredDoctors, setFilteredDoctors] = useState(null);
@@ -24,9 +25,7 @@ const ListOfDoctors = () => {
             <div>
             {
                 buttons.map((departmentType, index) => (
-                    <button value={departmentType.value} onClick={handleDepartmentSelection}>
-                        {departmentType.name}
-                    </button>
+                    <FilterButton value={departmentType.value} onClickHandler={handleDepartmentSelection} name={departmentType.name} />
                 ))
             }
             </div>
@@ -37,7 +36,7 @@ const ListOfDoctors = () => {
                         <ul>
                             <li>Doctor Name: {i.name}</li>
                             <li>Department: {i.department}</li>
-                            <li>Role {i.role}</li>
+                            <li>Role: {i.role}</li>
                             <li>Start Time: {i.startTime.toUTCString()}</li>
                             <li>End Time: {i.endTime.toUTCString()}</li>
                             <li>Role: {i.role}</li>
