@@ -39,7 +39,6 @@ const ListOfDoctors = () => {
                             <li>Role: {i.role}</li>
                             <li>Start Time: {i.startTime.toUTCString()}</li>
                             <li>End Time: {i.endTime.toUTCString()}</li>
-                            <li>Role: {i.role}</li>
                             <li>Notes: {i.notes}</li>
                             <li>Call Order: {i.callOrder}</li>
                             <li>Pager: {i.pager}</li>
