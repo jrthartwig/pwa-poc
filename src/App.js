@@ -1,11 +1,11 @@
 import React from 'react';
-import ListOfDoctors from './components/ListOfDoctors/ListOfDoctors';
+import FilteredListOfDoctors from './components/ListOfDoctors/FilteredListOfDoctors';
 import { AllDataProvider } from './contexts/allData';
 
 function App() {
   return (
     <AllDataProvider>
-      <ListOfDoctors />
+      <FilteredListOfDoctors />
     </AllDataProvider>
   );
 }

@@ -3,8 +3,9 @@ import { useAllData } from "../../contexts/allData";
 import getDataByDepartment from "../../services/getDataByDepartment";
 import buttons from "../../data/buttons";
 import FilterButton from "../FilterButton/FilterButton";
+import DoctorInformation from "../DoctorInformation/DoctorInformation";
 
-const ListOfDoctors = () => {
+const FilteredListOfDoctors = () => {
     const [filteredDoctors, setFilteredDoctors] = useState(null);
 
     const allDoctorData = useAllData();
@@ -25,29 +26,16 @@ const ListOfDoctors = () => {
             <div>
             {
                 buttons.map((departmentType, index) => (
-                    <FilterButton value={departmentType.value} onClickHandler={handleDepartmentSelection} name={departmentType.name} />
+                    <FilterButton key={index} value={departmentType.value} onClickHandler={handleDepartmentSelection} name={departmentType.name} />
                 ))
             }
             </div>
             {
                 filteredDoctors &&
-                filteredDoctors.map((i, k) => (
-                    <ul>
-                        <ul>
-                            <li>Doctor Name: {i.name}</li>
-                            <li>Department: {i.department}</li>
-                            <li>Role: {i.role}</li>
-                            <li>Start Time: {i.startTime.toUTCString()}</li>
-                            <li>End Time: {i.endTime.toUTCString()}</li>
-                            <li>Notes: {i.notes}</li>
-                            <li>Call Order: {i.callOrder}</li>
-                            <li>Pager: {i.pager}</li>
-                        </ul>
-                    </ul>
-                ))
+                <DoctorInformation filteredDoctors={filteredDoctors} />
             }
         </div>
     )
 }
 
-export default ListOfDoctors;
+export default FilteredListOfDoctors;
