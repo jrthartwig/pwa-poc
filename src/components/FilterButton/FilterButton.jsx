@@ -1,7 +1,8 @@
 const FilterButton = (props) => {
+    const {value, onClickHandler, name} = props; 
     
     return(
-        <button value={props.value} onClick={props.onClickHandler}>{props.name}</button>
+        <button value={value} onClick={onClickHandler}>{name}</button>
     )
 }
 
