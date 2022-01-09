@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useAllData } from "../../contexts/allData";
 import getDataByDepartment from "../../services/getDataByDepartment";
 import buttons from "../../data/buttons";
-import useGetDataByDepartment from "../../hooks/useGetDataByDepartment";
 import FilterButton from "../FilterButton/FilterButton";
 import DoctorInformation from "../DoctorInformation/DoctorInformation";
 
