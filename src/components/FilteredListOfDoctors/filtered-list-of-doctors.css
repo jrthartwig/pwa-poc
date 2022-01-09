@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-columns: [first-column] 25% [second-column] 25% [third-column] 25% [fourth-column] 25%;
+  grid-template-rows: [first-row] 5% [second-row] 40% [third-row] 25% [fourth-row] 25%;
+}
+
+.department-dropdown {
+  grid-column-start: first-column;
+  grid-column-end: second-column;
+  grid-row-start: first-row;
+  grid-row-end: first-row;
+  margin: 15px;
+}
+
+.doctor-dropdown {
+  grid-column-start: second-column;
+  grid-column-end: third-column;
+  grid-row-start: first-row;
+  grid-row-end: first-row;
+  margin: 15px;
+}
+
+.doctor-data {
+  grid-column-start: first-column;
+  grid-column-end: third-column;
+  grid-row-start: second-row;
+  grid-row-end: fourth-row;
+  margin: 15px;
+}
