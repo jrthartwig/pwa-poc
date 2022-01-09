@@ -1,5 +1,5 @@
 import React from 'react';
-import FilteredListOfDoctors from './components/ListOfDoctors/FilteredListOfDoctors';
+import FilteredListOfDoctors from './components/FilteredListOfDoctors/FilteredListOfDoctors';
 import { AllDataProvider } from './contexts/allData';
 
 function App() {

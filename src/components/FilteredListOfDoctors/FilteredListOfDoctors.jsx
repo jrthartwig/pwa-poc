@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAllData } from "../../contexts/allData";
 import getDataByDepartment from "../../services/getDataByDepartment";
-import buttons from "../../data/buttons";
-import FilterButton from "../FilterButton/FilterButton";
 import DoctorInformation from "../DoctorInformation/DoctorInformation";
+import DropdownFilter from "../DropdownFilter/DropdownFilter";
+import departmentOptions from "../../data/departmentOptions";
+import getDataByDoctor from "../../services/getDataByDoctors";
+import personOptions from "../../data/personOptions";
 
 const FilteredListOfDoctors = () => {
     const [filteredDoctors, setFilteredDoctors] = useState(null);
@@ -21,15 +23,17 @@ const FilteredListOfDoctors = () => {
             : setFilteredDoctors(allDoctorData && allDoctorData);
     }
 
+    const handleDoctorSelection = (e) => {
+        let selectedDoctor = e.target.value;
+        selectedDoctor !== "allDoctors"
+            ? setFilteredDoctors(getDataByDoctor(allDoctorData && allDoctorData, selectedDoctor))
+            : setFilteredDoctors(allDoctorData && allDoctorData);
+    }
+
     return (
         <div>
-            <div>
-            {
-                buttons.map((departmentType, index) => (
-                    <FilterButton key={index} value={departmentType.value} onClickHandler={handleDepartmentSelection} name={departmentType.name} />
-                ))
-            }
-            </div>
+            <DropdownFilter label="Department" options={departmentOptions} onChangeHandler={handleDepartmentSelection} />
+            <DropdownFilter label="Doctors" options={personOptions} onChangeHandler={handleDoctorSelection} />
             {
                 filteredDoctors &&
                 <DoctorInformation filteredDoctors={filteredDoctors} />

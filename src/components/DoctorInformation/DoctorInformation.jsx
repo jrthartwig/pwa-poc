@@ -1,5 +1,6 @@
-const DoctorInformation = (props) => {
-    const filteredDoctors = props.filteredDoctors.map((doctor) => 
+const DoctorInformation = props => {
+    const {filteredDoctors} = props; 
+    const doctorInformation = filteredDoctors.map((doctor) => 
         <ul>
             <li>Doctor Name: {doctor.name}</li>
             <li>Department: {doctor.department}</li>
@@ -13,7 +14,7 @@ const DoctorInformation = (props) => {
     )
     return (
         <div>
-            {filteredDoctors}
+            {doctorInformation}
         </div>
     )
 }
