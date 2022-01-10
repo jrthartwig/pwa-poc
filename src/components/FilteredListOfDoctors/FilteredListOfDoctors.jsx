@@ -14,6 +14,8 @@ const FilteredListOfDoctors = () => {
     const [department, setDepartment] = useState("");
 
     const allDoctorData = useAllData();
+    const doctorHasBeenSet = doctor !== "" && doctor !== "allDoctors";
+    const departmentHasBeenSet = department !== "" && department !== "allDepartments"; 
 
     useEffect(() => {
         setFilteredDoctors(allDoctorData);
@@ -21,11 +23,12 @@ const FilteredListOfDoctors = () => {
 
     const handleDepartmentSelection = (e) => {
         setDepartment(e.target.value);
-        console.log(doctor);
-        console.log(e.target.value);
-        if (doctor !== "" && doctor !== "allDoctors") {
+        if (doctorHasBeenSet) {
             setFilteredDoctors(getDataByDepartmentAndDoctor(allDoctorData, doctor, e.target.value));
         }
+        // else if(!departmentHasBeenSet && doctorHasBeenSet) {
+        //     setFilteredDoctors(getDataByDepartment(allDoctorData, department))
+        // }
         else {
             let selectedDepartment = e.target.value;
             selectedDepartment !== "allDepartments"
@@ -35,19 +38,17 @@ const FilteredListOfDoctors = () => {
     }
 
     const handleDoctorSelection = (e) => {
-        console.log(e.target.value)
-        console.log(department)
+        // console.log(e.target.value)
+        // console.log(department)
         setDoctor(e.target.value)
-        if (department !== "" && department !== "allDepartments")
-        {
+        if (departmentHasBeenSet) {
             setFilteredDoctors(getDataByDepartmentAndDoctor(allDoctorData, e.target.value, department))
         }
         else {
-
             let selectedDoctor = e.target.value;
             selectedDoctor !== "allDoctors"
-            ? setFilteredDoctors(getDataByDoctor(allDoctorData && allDoctorData, selectedDoctor))
-            : setFilteredDoctors(allDoctorData && allDoctorData);
+                ? setFilteredDoctors(getDataByDoctor(allDoctorData && allDoctorData, selectedDoctor))
+                : setFilteredDoctors(allDoctorData && allDoctorData);
         }
     }
 

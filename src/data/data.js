@@ -51,7 +51,7 @@ const data = [
   },
   {
     name: "Dr. Peach",
-    department: "3D World",
+    department: "Party",
     startTime: new Date(Date.UTC(2021, 12, 26, 8, 0)),
     endTime: new Date(Date.UTC(2021, 12, 26, 21, 0)),
     notes: "here are some notes",
