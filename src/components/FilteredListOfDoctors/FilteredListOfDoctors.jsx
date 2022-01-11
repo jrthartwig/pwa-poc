@@ -1,25 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAllData } from "../../contexts/allData";
-import getDataByDepartment from "../../services/getDataByDepartment";
 import DoctorInformation from "../DoctorInformation/DoctorInformation";
 import DropdownFilter from "../DropdownFilter/DropdownFilter";
 import departmentOptions from "../../data/departmentOptions";
-import getDataByDoctor from "../../services/getDataByDoctors";
 import personOptions from "../../data/personOptions";
-import getDataByDepartmentAndDoctor from "../../services/getDataByDepartmentAndDoctor";
 
 const FilteredListOfDoctors = () => {
-    const [filteredDoctors, setFilteredDoctors] = useState(null);
     const [doctor, setDoctor] = useState("");
     const [department, setDepartment] = useState("");
 
     const allDoctorData = useAllData();
-    const doctorHasBeenSet = doctor !== "" && doctor !== "allDoctors";
-    const departmentHasBeenSet = department !== "" && department !== "allDepartments";
-
-    useEffect(() => {
-        setFilteredDoctors(allDoctorData);
-    }, [allDoctorData]);
 
     const handleDepartmentSelection = (e) => {
         setDepartment(e.target.value);
