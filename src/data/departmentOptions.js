@@ -1,7 +1,7 @@
 const departmentOptions = [
     {
         name: "All Departments",
-        value: "allDepartments"
+        value: ""
     },
     {
         name: "3D World",
