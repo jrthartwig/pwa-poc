@@ -1,7 +1,7 @@
 const personOptions = [
     {
         name: "All Doctors",
-        value: "allDoctors"
+        value: ""
     },
     {
         name: "Dr. Mario",
