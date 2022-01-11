@@ -23,33 +23,21 @@ const FilteredListOfDoctors = () => {
 
     const handleDepartmentSelection = (e) => {
         setDepartment(e.target.value);
-        // if (doctorHasBeenSet) {
-        //     setFilteredDoctors(getDataByDepartmentAndDoctor(allDoctorData, doctor, e.target.value));
-        // }
-        // // else if(!departmentHasBeenSet && doctorHasBeenSet) {
-        // //     setFilteredDoctors(getDataByDepartment(allDoctorData, department))
-        // // }
-        // else {
-        //     let selectedDepartment = e.target.value;
-        //     selectedDepartment !== "allDepartments"
-        //         ? setFilteredDoctors(getDataByDepartment(allDoctorData && allDoctorData, selectedDepartment))
-        //         : setFilteredDoctors(allDoctorData && allDoctorData);
-        // }
     }
 
     const handleDoctorSelection = (e) => {
-        // console.log(e.target.value)
-        // console.log(department)
         setDoctor(e.target.value)
-        // if (departmentHasBeenSet) {
-        //     setFilteredDoctors(getDataByDepartmentAndDoctor(allDoctorData, e.target.value, department))
-        // }
-        // else {
-        //     let selectedDoctor = e.target.value;
-        //     selectedDoctor !== "allDoctors"
-        //         ? setFilteredDoctors(getDataByDoctor(allDoctorData && allDoctorData, selectedDoctor))
-        //         : setFilteredDoctors(allDoctorData && allDoctorData);
-        // }
+    }
+
+    const filterDoctors = (doctor, department, allDoctorData) => {
+        if(doctor && !department)
+            return allDoctorData.filter((dr) => doctor === dr.name)
+        if(department && !doctor)
+            return allDoctorData.filter((dr) => department == dr.department)
+        if(department && doctor)
+            return allDoctorData.filter((dr => doctor == dr.name && department == dr.department))
+        if(!department && !doctor)
+            return allDoctorData
     }
 
     return (
@@ -58,17 +46,7 @@ const FilteredListOfDoctors = () => {
             <DropdownFilter label="Doctors" options={personOptions} onChangeHandler={handleDoctorSelection} />
             {
                 allDoctorData &&
-                <DoctorInformation filteredDoctors={allDoctorData.filter((dr) => doctor === dr.name)} />
-            }
-            {
-            console.log(doctor)
-           // console.log(allDoctorData)
-            }
-            {
-                console.log(allDoctorData)
-            }
-            {
-                console.log(allDoctorData.filter((dr) => doctor === dr.name))
+                <DoctorInformation filteredDoctors={filterDoctors(doctor, department, allDoctorData)} />
             }
         </div>
     )
