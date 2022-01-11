@@ -23,9 +23,9 @@ const FilteredListOfDoctors = () => {
         if(doctor && !department)
             return allDoctorData.filter((dr) => doctor === dr.name)
         if(department && !doctor)
-            return allDoctorData.filter((dr) => department == dr.department)
+            return allDoctorData.filter((dr) => department === dr.department)
         if(department && doctor)
-            return allDoctorData.filter((dr => doctor == dr.name && department == dr.department))
+            return allDoctorData.filter((dr => doctor === dr.name && department === dr.department))
         if(!department && !doctor)
             return allDoctorData
     }
