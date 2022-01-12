@@ -53,11 +53,11 @@ const mockDataByDepartment = [{
     pager: 123456, 
   }]
 
-describe('getDataByDepartment', () => {
-    it('exists', () => {
+describe('given a department and data', () => {
+    it('then getDataByDepartment retuns ', () => {
         expect(getDataByDepartment(data, "3D World")).toBeDefined();
     })
-    it('filters data by department', () => {
+    it('then getDataByDepartment filters data by department', () => {
         expect(getDataByDepartment(data, "3D World")).toEqual(mockDataByDepartment);
     })
 })

@@ -63,11 +63,11 @@ const mockDataByDoctorAndDepartment = [{
     pager: 123456, 
   }]
 
-describe('getDataByDoctorAndDepartment', () => {
-    it('exists', () => {
+describe('given a data, a department, and a doctor', () => {
+    it('then getDataByDepartmentAndDoctor exists', () => {
         expect(getDataByDepartmentAndDoctor(data, "Dr. Mario", "3D World")).toBeDefined();
     })
-    it('filters data by department and doctor', () => {
+    it('then getDataByDepartment filters data by department and doctor', () => {
         expect(getDataByDepartmentAndDoctor(data, "Dr. Mario", "3D World")).toEqual(mockDataByDoctorAndDepartment);
     })
 })
