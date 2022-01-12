@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useAllData } from "../../contexts/allData";
 import DoctorInformation from "../DoctorInformation/DoctorInformation";
 import DropdownFilter from "../DropdownFilter/DropdownFilter";
+import getDataByDepartment from "../../services/getDataByDepartment/getDataByDepartment";
+import getDataByDoctor from "../../services/getDataByDoctor/getDataByDoctor";
+import getDataByDepartmentAndDoctor from "../../services/getDataByDepartmentAndDoctor/getDataByDepartmentAndDoctor";
 import departmentOptions from "../../data/departmentOptions";
 import personOptions from "../../data/personOptions";
 
@@ -21,11 +24,11 @@ const FilteredListOfDoctors = () => {
 
     const filterDoctors = (doctor, department, allDoctorData) => {
         if(doctor && !department)
-            return allDoctorData.filter((dr) => doctor === dr.name)
+            return getDataByDoctor(allDoctorData, doctor)
         if(department && !doctor)
-            return allDoctorData.filter((dr) => department === dr.department)
+            return getDataByDepartment(allDoctorData, department)
         if(department && doctor)
-            return allDoctorData.filter((dr => doctor === dr.name && department === dr.department))
+            return getDataByDepartmentAndDoctor(allDoctorData, doctor, department)
         if(!department && !doctor)
             return allDoctorData
     }
