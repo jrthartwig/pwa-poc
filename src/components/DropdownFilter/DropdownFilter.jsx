@@ -6,7 +6,7 @@ const DropdownFilter = (props) => {
 
     return (
 
-        <div>
+        <div className="dropdown">
             <label>{label}</label>
             <select name={name} id={name} onChange={onChangeHandler}>
                 {

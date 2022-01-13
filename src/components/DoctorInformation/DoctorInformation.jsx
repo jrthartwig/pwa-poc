@@ -1,22 +1,20 @@
-const DoctorInformation = props => {
-    const {filteredDoctors} = props; 
-    const doctorInformation = filteredDoctors.map((doctor) => 
-        <ul>
-            <li>Doctor Name: {doctor.name}</li>
-            <li>Department: {doctor.department}</li>
-            <li>Role: {doctor.role}</li>
-            <li>Start Time: {doctor.startTime.toUTCString()}</li>
-            <li>End Time: {doctor.endTime.toUTCString()}</li>
-            <li>Notes: {doctor.notes}</li>
-            <li>Call Order: {doctor.callOrder}</li>
-            <li>Pager: {doctor.pager}</li>
-        </ul>
-    )
-    return (
-        <div>
-            {doctorInformation}
-        </div>
-    )
-}
+const DoctorInformation = (props) => {
+  const { filteredDoctors } = props;
+  const doctorInformation = filteredDoctors.map((doctor) => (
+    <div className="card">
+      <ul>
+        <li><b>Doctor Name:</b> {doctor.name}</li>
+        <li><b>Department:</b> {doctor.department}</li>
+        <li><b>Role:</b> {doctor.role}</li>
+        <li><b>Start Time:</b> {doctor.startTime.toUTCString()}</li>
+        <li><b>End Time:</b> {doctor.endTime.toUTCString()}</li>
+        <li><b>Notes:</b> {doctor.notes}</li>
+        <li><b>Call Order:</b> {doctor.callOrder}</li>
+        <li><b>Pager:</b> {doctor.pager}</li>
+      </ul>
+    </div>
+  ));
+  return <div className="container">{doctorInformation}</div>;
+};
 
 export default DoctorInformation;
