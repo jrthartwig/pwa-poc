@@ -12,7 +12,7 @@ function App() {
     })();
   });
   return (
-    <div>{data[0].name}</div>
+    <div>{data[0]}</div>
     // <AllDataProvider>
     //   <FilteredListOfDoctors />
     // </AllDataProvider>
