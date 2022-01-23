@@ -14,7 +14,7 @@ function App() {
     })();
   }
   
-  useEffect(() => {
+  useEffect(async () => {
     try {
       await getDoctors(); 
     }
