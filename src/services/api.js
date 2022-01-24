@@ -1,0 +1,1 @@
+export const doctorURI = "http://localhost:7071/api/GetAllDoctorInformation";

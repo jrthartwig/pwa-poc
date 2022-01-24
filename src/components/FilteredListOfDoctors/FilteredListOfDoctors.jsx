@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAllData } from "../../contexts/allData";
 import DoctorInformation from "../DoctorInformation/DoctorInformation";
 import DropdownFilter from "../DropdownFilter/DropdownFilter";
@@ -35,8 +35,10 @@ const FilteredListOfDoctors = () => {
             <DropdownFilter label="Department" options={departmentOptions} onChangeHandler={handleDepartmentSelection} />
             <DropdownFilter label="Doctors" options={personOptions} onChangeHandler={handleDoctorSelection} />
             {
-                allDoctorData &&
-                <DoctorInformation filteredDoctors={filterDoctors(doctor, department, allDoctorData)} />
+                
+                // console.log(allDoctorData.doctorInformation)
+                // allDoctorData && console.log(filterDoctors(doctor, department, allDoctorData.doctorInformation))
+                allDoctorData && <DoctorInformation filteredDoctors={allDoctorData && filterDoctors(doctor, department, allDoctorData.doctorInformation)} />
             }
         </div>
     )
