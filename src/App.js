@@ -3,30 +3,19 @@ import FilteredListOfDoctors from "./components/FilteredListOfDoctors/FilteredLi
 import { AllDataProvider } from "./contexts/allData";
 
 function App() {
-  const [data, setData] = useState("");
+  // const [data, setData] = useState("");
 
-  const getDoctors = async () => {
-    (async function () {
-      const { text } = await (
-        await fetch(`/api/getalldoctorinformation`)
-      ).json();
-      setData(text);
-    })();
-  }
-  
-  useEffect(async () => {
-    try {
-      await getDoctors(); 
-    }
-    catch (error) {
-      console.log(error)
-    }
-  });
+  // useEffect(() => {
+  //   fetch("http://localhost:7071/api/GetAllDoctorInformation")
+  //   .then(res => res.json())
+  //   .then(res => setData(res))
+  // })
+
   return (
-    <div>{data[0]}</div>
-    // <AllDataProvider>
-    //   <FilteredListOfDoctors />
-    // </AllDataProvider>
+    // <div>{data && data[0].name}</div>
+    <AllDataProvider>
+      <FilteredListOfDoctors />
+    </AllDataProvider>
   );
 }
 
